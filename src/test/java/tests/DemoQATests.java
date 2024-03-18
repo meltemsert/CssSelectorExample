@@ -14,6 +14,7 @@ import utils.PropertyManager;
 import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Optional;
 
 
 public class DemoQATests {
@@ -43,13 +44,16 @@ public class DemoQATests {
         buttonsOption.click();
 
         // Click Me düğmesine tıklama
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Butonları bulun
         List<WebElement> clickButtons = driver.findElements(new By.ByCssSelector("button[type=button]"));
 
-        // List içindeki her bir elemanı kontrol etme
+//        Optional<WebElement> clickButton= clickButtons.stream().filter(webElement ->
+//                webElement.getText().equals("Click Me")).findFirst();
+//        clickButton.ifPresent(WebElement::click);
+
+ //     List içindeki her bir elemanı kontrol etme
         for (WebElement button : clickButtons) {
 
             // Bekleme ekleyin (elementin tıklanabilir olmasını bekleyin)
@@ -61,7 +65,6 @@ public class DemoQATests {
                 break; // İlk eşleşmeyi bulduktan sonra döngüden çıkın
             }
         }
-
         // Görünen mesajı okuma
         WebElement messageElement = driver.findElement(By.cssSelector("#dynamicClickMessage"));
         String messageText = messageElement.getText();

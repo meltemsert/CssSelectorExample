@@ -10,8 +10,8 @@ public class Driver {
     public WebDriver initializeDriver() throws MalformedURLException {
         webDriver = DriverFactory.getDriver();
 
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(100));
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(200));
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(200));
         webDriver.manage().window().maximize();
 
         return webDriver;
